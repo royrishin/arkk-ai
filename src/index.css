@@ -2,31 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Fault Classification AI Design System */
+/* Advanced Fault Classification AI Design System */
 
-/* Brand Colors - Technical/AI theme */
+/* Enhanced Brand Colors */
 :root {
-  /* AI/Tech brand colors */
+  /* Primary AI/Tech Palette */
   --ai-primary: 220 90% 56%;
-  --ai-primary-glow: 220 100% 70%;
+  --ai-primary-dark: 220 90% 45%;
+  --ai-primary-light: 220 100% 70%;
   --ai-secondary: 240 15% 15%;
   --ai-accent: 45 100% 60%;
   --ai-success: 142 76% 36%;
   --ai-warning: 38 92% 50%;
   --ai-error: 0 84% 60%;
   
-  /* Gradients */
-  --gradient-ai: linear-gradient(135deg, hsl(var(--ai-primary)), hsl(var(--ai-primary-glow)));
-  --gradient-card: linear-gradient(145deg, hsl(var(--background)), hsl(var(--muted)));
-  --gradient-result: linear-gradient(135deg, hsl(var(--ai-success) / 0.1), hsl(var(--ai-primary) / 0.1));
+  /* Neural Network Theme */
+  --neural-blue: 210 100% 60%;
+  --neural-purple: 270 75% 60%;
+  --neural-cyan: 180 100% 50%;
+  --electric-orange: 25 100% 55%;
   
-  /* Shadows */
-  --shadow-ai: 0 10px 30px -10px hsl(var(--ai-primary) / 0.3);
-  --shadow-card: 0 4px 20px hsl(var(--foreground) / 0.1);
-  --shadow-glow: 0 0 40px hsl(var(--ai-primary-glow) / 0.4);
+  /* Advanced Gradients */
+  --gradient-hero: linear-gradient(135deg, hsl(var(--ai-primary)), hsl(var(--neural-purple)), hsl(var(--ai-primary-light)));
+  --gradient-neural: linear-gradient(45deg, hsl(var(--neural-blue)), hsl(var(--neural-cyan)));
+  --gradient-card: linear-gradient(145deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%);
+  --gradient-electric: linear-gradient(90deg, hsl(var(--ai-primary)), hsl(var(--electric-orange)));
+  --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
   
-  /* Animations */
-  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Enhanced Shadows */
+  --shadow-neural: 0 25px 50px -12px hsl(var(--ai-primary) / 0.4);
+  --shadow-float: 0 10px 40px -10px hsl(var(--foreground) / 0.1);
+  --shadow-glow: 0 0 60px hsl(var(--ai-primary-light) / 0.6);
+  --shadow-depth: 0 20px 60px hsl(var(--foreground) / 0.15);
+  
+  /* Advanced Animations */
+  --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --transition-neural: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 @layer base {

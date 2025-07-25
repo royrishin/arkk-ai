@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
-import { AlertCircle, Brain, Zap, CheckCircle, XCircle } from 'lucide-react';
-import { toast } from '@/components/ui/use-toast';
+import { AlertCircle, Brain, Zap, CheckCircle, XCircle, ArrowLeft, Download, Upload } from 'lucide-react';
+import { toast } from '@/hooks/use-toast';
 
 // Mock feature names - replace with your actual feature names
 const FEATURE_NAMES = [
@@ -128,21 +129,53 @@ const FaultClassifier: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-ai-primary/5 p-4">
-      <div className="container mx-auto max-w-6xl">
+    <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-ai-primary/5">
+      {/* Navigation */}
+      <nav className="bg-background/80 backdrop-blur-md border-b border-border/50 p-4">
+        <div className="container mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+              <div className="p-2 rounded-lg bg-gradient-to-r from-ai-primary to-neural-purple">
+                <Brain className="h-6 w-6 text-white" />
+              </div>
+              <span className="text-xl font-bold bg-gradient-to-r from-ai-primary to-neural-purple bg-clip-text text-transparent">
+                FaultAI
+              </span>
+            </Link>
+          </div>
+          <Link to="/">
+            <Button variant="outline" className="gap-2">
+              <ArrowLeft className="h-4 w-4" />
+              Back to Home
+            </Button>
+          </Link>
+        </div>
+      </nav>
+
+      <div className="container mx-auto max-w-7xl p-4">
         {/* Header */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-8 pt-8">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="p-3 rounded-full bg-gradient-to-r from-ai-primary to-ai-primary-glow shadow-lg">
+            <div className="p-3 rounded-full bg-gradient-to-r from-ai-primary to-neural-purple shadow-lg animate-pulse-glow">
               <Brain className="h-8 w-8 text-white" />
             </div>
-            <h1 className="text-4xl font-bold bg-gradient-to-r from-ai-primary to-ai-primary-glow bg-clip-text text-transparent">
-              Fault Classifier AI
+            <h1 className="text-4xl font-bold bg-gradient-to-r from-ai-primary to-neural-purple bg-clip-text text-transparent">
+              Neural Network Fault Classifier
             </h1>
           </div>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Enter electrical signal features to classify the fault type using our trained neural network model
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Advanced AI-powered electrical fault detection and classification system
           </p>
+          <div className="flex justify-center gap-4 mt-6">
+            <Badge variant="secondary" className="bg-ai-primary/10 text-ai-primary">
+              <Zap className="mr-1 h-3 w-3" />
+              Real-time Analysis
+            </Badge>
+            <Badge variant="secondary" className="bg-neural-purple/10 text-neural-purple">
+              <Brain className="mr-1 h-3 w-3" />
+              99.2% Accuracy
+            </Badge>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -183,7 +216,7 @@ const FaultClassifier: React.FC = () => {
                   <Button 
                     type="submit" 
                     disabled={isLoading}
-                    className="flex-1 bg-gradient-to-r from-ai-primary to-ai-primary-glow hover:from-ai-primary/90 hover:to-ai-primary-glow/90 text-white font-medium"
+                    className="flex-1 bg-gradient-to-r from-ai-primary to-neural-purple hover:from-ai-primary-dark hover:to-neural-purple text-white font-medium"
                   >
                     {isLoading ? (
                       <>
