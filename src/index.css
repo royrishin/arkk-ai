@@ -2,9 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Fault Classification AI Design System */
+
+/* Brand Colors - Technical/AI theme */
+:root {
+  /* AI/Tech brand colors */
+  --ai-primary: 220 90% 56%;
+  --ai-primary-glow: 220 100% 70%;
+  --ai-secondary: 240 15% 15%;
+  --ai-accent: 45 100% 60%;
+  --ai-success: 142 76% 36%;
+  --ai-warning: 38 92% 50%;
+  --ai-error: 0 84% 60%;
+  
+  /* Gradients */
+  --gradient-ai: linear-gradient(135deg, hsl(var(--ai-primary)), hsl(var(--ai-primary-glow)));
+  --gradient-card: linear-gradient(145deg, hsl(var(--background)), hsl(var(--muted)));
+  --gradient-result: linear-gradient(135deg, hsl(var(--ai-success) / 0.1), hsl(var(--ai-primary) / 0.1));
+  
+  /* Shadows */
+  --shadow-ai: 0 10px 30px -10px hsl(var(--ai-primary) / 0.3);
+  --shadow-card: 0 4px 20px hsl(var(--foreground) / 0.1);
+  --shadow-glow: 0 0 40px hsl(var(--ai-primary-glow) / 0.4);
+  
+  /* Animations */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
 @layer base {
   :root {
