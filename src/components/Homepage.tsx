@@ -15,7 +15,7 @@ const Homepage: React.FC = () => {
       icon: <img src={faultIcon} alt="Fault Detection" className="w-12 h-12 rounded-lg object-cover" />,
       title: "Advanced Fault Detection",
       description: "AI-powered neural networks trained to identify electrical faults with precision and speed",
-      stats: "99.2% Accuracy"
+      stats: "96.7% Accuracy"
     },
     {
       icon: <img src={realtimeIcon} alt="Real-time Analysis" className="w-12 h-12 rounded-lg object-cover" />,
@@ -52,7 +52,7 @@ const Homepage: React.FC = () => {
   const stats = [
     { number: "25", label: "Input Features", icon: <BarChart3 className="h-6 w-6" /> },
     { number: "3", label: "Fault Types", icon: <Zap className="h-6 w-6" /> },
-    { number: "99.2%", label: "Accuracy", icon: <Target className="h-6 w-6" /> },
+    { number: "96.7%", label: "Accuracy", icon: <Target className="h-6 w-6" /> },
     { number: "<100ms", label: "Response Time", icon: <Activity className="h-6 w-6" /> }
   ];
 
