@@ -67,7 +67,7 @@ const Homepage: React.FC = () => {
                 <Brain className="h-6 w-6 text-white" />
               </div>
               <span className="text-xl font-bold bg-gradient-to-r from-ai-primary to-neural-purple bg-clip-text text-transparent">
-                FaultAI
+                ARKKAI
               </span>
             </div>
             <div className="flex items-center gap-6">
@@ -326,7 +326,7 @@ const Homepage: React.FC = () => {
               <div className="p-2 rounded-lg bg-gradient-to-r from-ai-primary to-neural-purple">
                 <Brain className="h-6 w-6" />
               </div>
-              <span className="text-xl font-bold">FaultAI</span>
+              <span className="text-xl font-bold">ARKKAI</span>
             </div>
             <div className="text-center md:text-right">
               <p className="text-white/80 mb-2">

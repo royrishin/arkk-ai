@@ -139,7 +139,7 @@ const FaultClassifier: React.FC = () => {
                 <Brain className="h-6 w-6 text-white" />
               </div>
               <span className="text-xl font-bold bg-gradient-to-r from-ai-primary to-neural-purple bg-clip-text text-transparent">
-                FaultAI
+                ARKKAI
               </span>
             </Link>
           </div>
