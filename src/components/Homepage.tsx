@@ -27,22 +27,31 @@ const Homepage: React.FC = () => {
       icon: <img src={accuracyIcon} alt="Machine Learning" className="w-12 h-12 rounded-lg object-cover" />,
       title: "Machine Learning Precision",
       description: "Trained on thousands of electrical fault patterns using TensorFlow and Keras",
-      stats: "6 Fault Classes"
+      stats: "3 Fault Classes"
     }
   ];
 
   const faultTypes = [
-    { name: "No Fault", description: "Normal electrical system operation", color: "bg-ai-success" },
-    { name: "Line-to-Line (L-L)", description: "Short circuit between two phases", color: "bg-ai-warning" },
-    { name: "Line-to-Ground (L-G)", description: "Single phase to ground fault", color: "bg-ai-error" },
-    { name: "Double Line-to-Ground (L-L-G)", description: "Two phases to ground fault", color: "bg-neural-orange" },
-    { name: "Three Phase (L-L-L)", description: "Symmetrical three-phase fault", color: "bg-neural-purple" },
-    { name: "Three Phase-to-Ground (L-L-L-G)", description: "Complete system fault", color: "bg-neural-cyan" }
+    { 
+      name: "LL: Load-Loss", 
+      description: "Load shedding or disconnection causing sudden rise in voltage and frequency due to reduced demand while maintaining generation output", 
+      color: "bg-ai-warning" 
+    },
+    { 
+      name: "GO: Generator Outage", 
+      description: "Generator unit going offline unexpectedly, causing voltage and frequency drop as supply decreases while demand remains constant", 
+      color: "bg-ai-error" 
+    },
+    { 
+      name: "GG: Generator Ground", 
+      description: "Live generator component contacting grounded frame, resulting in abnormal current flows and phase angle distortions", 
+      color: "bg-neural-purple" 
+    }
   ];
 
   const stats = [
     { number: "25", label: "Input Features", icon: <BarChart3 className="h-6 w-6" /> },
-    { number: "6", label: "Fault Types", icon: <Zap className="h-6 w-6" /> },
+    { number: "3", label: "Fault Types", icon: <Zap className="h-6 w-6" /> },
     { number: "99.2%", label: "Accuracy", icon: <Target className="h-6 w-6" /> },
     { number: "<100ms", label: "Response Time", icon: <Activity className="h-6 w-6" /> }
   ];
@@ -199,7 +208,7 @@ const Homepage: React.FC = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Detectable Fault Types</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Our AI can classify six different types of electrical faults with high precision
+              Our AI can classify three different types of electrical faults with high precision
             </p>
           </div>
 
