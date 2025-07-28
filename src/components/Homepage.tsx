@@ -124,14 +124,16 @@ const Homepage: React.FC = () => {
                   Start Fault Analysis
                 </Button>
               </Link>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="px-8 py-6 text-lg border-ai-primary hover:bg-ai-primary hover:text-white"
-              >
-                <Shield className="mr-2 h-5 w-5" />
-                Learn More
-              </Button>
+              <Link to="/fault-types">
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="px-8 py-6 text-lg border-ai-primary hover:bg-ai-primary hover:text-white"
+                >
+                  <Shield className="mr-2 h-5 w-5" />
+                  Learn More
+                </Button>
+              </Link>
             </div>
 
             {/* Stats */}
