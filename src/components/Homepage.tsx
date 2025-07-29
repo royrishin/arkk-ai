@@ -430,6 +430,82 @@ const Homepage: React.FC = () => {
                 </div>
               </CollapsibleContent>
             </Collapsible>
+
+            {/* Model Performance Section */}
+            <div className="max-w-6xl mx-auto mt-16">
+              <div className="text-center mb-8">
+                <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-ai-primary to-neural-purple bg-clip-text text-transparent">
+                  Model Performance
+                </h3>
+                <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                  Below are the performance metrics of our neural network model after training. The accuracy and loss graphs show how well the model learned to classify different types of faults in the power system.
+                </p>
+              </div>
+
+              <Card className="border-ai-primary/20 hover:border-ai-primary/40 transition-colors">
+                <CardContent className="p-6">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    {/* Training and Validation Loss Graph */}
+                    <div className="space-y-4">
+                      <div 
+                        className="relative group cursor-pointer rounded-lg overflow-hidden border border-border/50 hover:border-ai-primary/40 transition-colors"
+                        onClick={() => window.open('/lovable-uploads/9a76fe14-1163-4411-af1c-0b0ece3be0d5.png', '_blank')}
+                      >
+                        <img 
+                          src="/lovable-uploads/9a76fe14-1163-4411-af1c-0b0ece3be0d5.png" 
+                          alt="Training and Validation Loss Graph" 
+                          className="w-full h-auto group-hover:scale-105 transition-transform duration-300"
+                          style={{ clipPath: 'inset(0 50% 0 0)' }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <Badge variant="secondary" className="text-xs">
+                            Click to expand
+                          </Badge>
+                        </div>
+                      </div>
+                      <div className="text-center">
+                        <p className="text-sm font-medium text-foreground mb-1">
+                          Training and Validation Loss over Epochs
+                        </p>
+                        <p className="text-xs text-muted-foreground">
+                          Lower loss values indicate better model learning
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Training and Validation Accuracy Graph */}
+                    <div className="space-y-4">
+                      <div 
+                        className="relative group cursor-pointer rounded-lg overflow-hidden border border-border/50 hover:border-ai-primary/40 transition-colors"
+                        onClick={() => window.open('/lovable-uploads/9a76fe14-1163-4411-af1c-0b0ece3be0d5.png', '_blank')}
+                      >
+                        <img 
+                          src="/lovable-uploads/9a76fe14-1163-4411-af1c-0b0ece3be0d5.png" 
+                          alt="Training and Validation Accuracy Graph" 
+                          className="w-full h-auto group-hover:scale-105 transition-transform duration-300"
+                          style={{ clipPath: 'inset(0 0 0 50%)' }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <Badge variant="secondary" className="text-xs">
+                            Click to expand
+                          </Badge>
+                        </div>
+                      </div>
+                      <div className="text-center">
+                        <p className="text-sm font-medium text-foreground mb-1">
+                          Training and Validation Accuracy over Epochs
+                        </p>
+                        <p className="text-xs text-muted-foreground">
+                          Higher accuracy values indicate better fault classification
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
