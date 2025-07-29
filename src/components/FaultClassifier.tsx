@@ -9,13 +9,12 @@ import { Progress } from '@/components/ui/progress';
 import { AlertCircle, Brain, Zap, CheckCircle, XCircle, ArrowLeft, Download, Upload } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
 
-// Mock feature names - replace with your actual feature names
+// Feature inputs for the fault classifier
 const FEATURE_NAMES = [
-  'V_bus_1', 'V_bus_2', 'V_bus_3', 'V_bus_4', 'V_bus_5',
-  'I_bus_1', 'I_bus_2', 'I_bus_3', 'I_bus_4', 'I_bus_5',
-  'F_bus_1', 'F_bus_2', 'F_bus_3', 'F_bus_4', 'F_bus_5',
-  'P_bus_1', 'P_bus_2', 'P_bus_3', 'P_bus_4', 'P_bus_5',
-  'THD_1', 'THD_2', 'THD_3', 'THD_4', 'THD_5'
+  'Voltage (V)',
+  'Frequency (Hz)',
+  'Phase Angle (degrees)',
+  'Bus System (1-118)'
 ];
 
 // Mock fault classes - replace with your actual classes
@@ -71,6 +70,18 @@ const FaultClassifier: React.FC = () => {
         toast({
           title: "Invalid Input",
           description: "All features must be valid numbers.",
+          variant: "destructive",
+        });
+        setIsLoading(false);
+        return;
+      }
+
+      // Validate bus system range (1-118)
+      const busSystemValue = parseFloat(features['Bus System (1-118)']);
+      if (busSystemValue < 1 || busSystemValue > 118 || !Number.isInteger(busSystemValue)) {
+        toast({
+          title: "Invalid Bus System",
+          description: "Bus system must be an integer between 1 and 118.",
           variant: "destructive",
         });
         setIsLoading(false);
@@ -192,7 +203,7 @@ const FaultClassifier: React.FC = () => {
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-h-96 overflow-y-auto">
+                <div className="grid grid-cols-1 gap-4">
                   {FEATURE_NAMES.map((featureName, index) => (
                     <div key={featureName} className="space-y-2">
                       <Label htmlFor={featureName} className="text-sm font-medium">
@@ -201,8 +212,10 @@ const FaultClassifier: React.FC = () => {
                       <Input
                         id={featureName}
                         type="number"
-                        step="any"
-                        placeholder="0.0"
+                        step={featureName === 'Bus System (1-118)' ? '1' : 'any'}
+                        placeholder={featureName === 'Bus System (1-118)' ? '1-118' : '0.0'}
+                        min={featureName === 'Bus System (1-118)' ? '1' : undefined}
+                        max={featureName === 'Bus System (1-118)' ? '118' : undefined}
                         value={features[featureName] || ''}
                         onChange={(e) => handleInputChange(featureName, e.target.value)}
                         className="transition-all duration-200 focus:ring-2 focus:ring-ai-primary/50"
