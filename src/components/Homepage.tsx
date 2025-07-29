@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Brain, Zap, Shield, BarChart3, ArrowRight, CheckCircle, Activity, Target } from 'lucide-react';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import { Brain, Zap, Shield, BarChart3, ArrowRight, CheckCircle, Activity, Target, ChevronDown, Layers, Network, Settings, Cpu } from 'lucide-react';
 import heroBackground from '@/assets/hero-bg.jpg';
 import faultIcon from '@/assets/fault-icon.jpg';
 import realtimeIcon from '@/assets/realtime-icon.jpg';
 import accuracyIcon from '@/assets/accuracy-icon.jpg';
 
 const Homepage: React.FC = () => {
+  const [isArchitectureOpen, setIsArchitectureOpen] = useState(false);
   const features = [
     {
       icon: <img src={faultIcon} alt="Fault Detection" className="w-12 h-12 rounded-lg object-cover" />,
@@ -248,12 +250,12 @@ const Homepage: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {[
               {
                 step: "01",
                 title: "Input Features",
-                description: "Enter 25 electrical signal measurements including voltage, current, frequency, power, and THD values",
+                description: "Enter voltage, frequency, phase angle data from 118 buses",
                 icon: <BarChart3 className="h-8 w-8" />
               },
               {
@@ -290,6 +292,144 @@ const Homepage: React.FC = () => {
                 </p>
               </div>
             ))}
+          </div>
+
+          {/* Deep Learning Architecture Section */}
+          <div className="max-w-4xl mx-auto">
+            <Collapsible open={isArchitectureOpen} onOpenChange={setIsArchitectureOpen}>
+              <CollapsibleTrigger asChild>
+                <Card className="cursor-pointer hover:shadow-lg transition-all duration-300 border-ai-primary/20 hover:border-ai-primary/40">
+                  <CardHeader>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <div className="p-2 rounded-lg bg-gradient-to-r from-ai-primary to-neural-purple">
+                          <Network className="h-6 w-6 text-white" />
+                        </div>
+                        <div>
+                          <CardTitle className="text-2xl text-left">Deep Learning Model Architecture</CardTitle>
+                          <CardDescription className="text-left mt-2">
+                            Explore the neural network design powering our fault classification system
+                          </CardDescription>
+                        </div>
+                      </div>
+                      <ChevronDown className={`h-6 w-6 text-ai-primary transition-transform duration-300 ${isArchitectureOpen ? 'rotate-180' : ''}`} />
+                    </div>
+                  </CardHeader>
+                </Card>
+              </CollapsibleTrigger>
+              
+              <CollapsibleContent className="mt-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {/* Input Layer */}
+                  <Card className="border-neural-blue/30 hover:border-neural-blue/60 transition-colors">
+                    <CardHeader>
+                      <div className="flex items-center gap-3">
+                        <div className="p-2 rounded-lg bg-neural-blue/20">
+                          <BarChart3 className="h-5 w-5 text-neural-blue" />
+                        </div>
+                        <CardTitle className="text-lg">Input Layer</CardTitle>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground mb-3">
+                        The model takes in voltage, frequency, and phase angle data from 118 buses.
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        Each measurement serves as a feature to identify power system faults with precision.
+                      </p>
+                    </CardContent>
+                  </Card>
+
+                  {/* Hidden Layers */}
+                  <Card className="border-neural-purple/30 hover:border-neural-purple/60 transition-colors">
+                    <CardHeader>
+                      <div className="flex items-center gap-3">
+                        <div className="p-2 rounded-lg bg-neural-purple/20">
+                          <Layers className="h-5 w-5 text-neural-purple" />
+                        </div>
+                        <CardTitle className="text-lg">Hidden Layers</CardTitle>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                      <div>
+                        <p className="font-medium text-sm mb-2">5 Dense Layers:</p>
+                        <div className="text-sm text-muted-foreground space-y-1">
+                          <p>• 512, 1024, 512, 256, 128 neurons</p>
+                          <p>• ReLU activation functions</p>
+                          <p>• Batch Normalization</p>
+                          <p>• 20% Dropout prevention</p>
+                          <p>• L2 regularization</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* Output Layer */}
+                  <Card className="border-neural-orange/30 hover:border-neural-orange/60 transition-colors">
+                    <CardHeader>
+                      <div className="flex items-center gap-3">
+                        <div className="p-2 rounded-lg bg-neural-orange/20">
+                          <CheckCircle className="h-5 w-5 text-neural-orange" />
+                        </div>
+                        <CardTitle className="text-lg">Output Layer</CardTitle>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground mb-3">
+                        Softmax activation classifies input into fault types:
+                      </p>
+                      <div className="text-sm text-muted-foreground space-y-1">
+                        <p>• Load-Loss (LL)</p>
+                        <p>• Generator Outage (GO)</p>
+                        <p>• Generator Ground (GG)</p>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* Optimization */}
+                  <Card className="border-neural-cyan/30 hover:border-neural-cyan/60 transition-colors">
+                    <CardHeader>
+                      <div className="flex items-center gap-3">
+                        <div className="p-2 rounded-lg bg-neural-cyan/20">
+                          <Settings className="h-5 w-5 text-neural-cyan" />
+                        </div>
+                        <CardTitle className="text-lg">Optimization</CardTitle>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                      <div className="text-sm text-muted-foreground space-y-1">
+                        <p><span className="font-medium">Adam Optimizer:</span> Low learning rate (0.0004) for stable updates</p>
+                        <p><span className="font-medium">Loss Function:</span> Sparse categorical cross-entropy for multi-class classification</p>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* Training Strategy */}
+                  <Card className="border-ai-primary/30 hover:border-ai-primary/60 transition-colors md:col-span-2">
+                    <CardHeader>
+                      <div className="flex items-center gap-3">
+                        <div className="p-2 rounded-lg bg-ai-primary/20">
+                          <Cpu className="h-5 w-5 text-ai-primary" />
+                        </div>
+                        <CardTitle className="text-lg">Training Strategy</CardTitle>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-muted-foreground">
+                        <div>
+                          <p className="font-medium text-foreground mb-2">Early Stopping:</p>
+                          <p>Halts training when model stops improving to prevent overfitting and ensure optimal performance.</p>
+                        </div>
+                        <div>
+                          <p className="font-medium text-foreground mb-2">Learning Rate Reduction:</p>
+                          <p>Automatically adjusts learning rate when progress slows for precise convergence.</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </CollapsibleContent>
+            </Collapsible>
           </div>
         </div>
       </section>
