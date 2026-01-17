@@ -5,7 +5,7 @@
 This project is about detecting electrical fault detection in bus systems (power grids or data networks like CAN) using sensor data such as voltage, current, phase angle with the help of advanced algorithms (AI/ML). This project can be used in identifying issues like short circuits or communication errors for rapid isolation and repair, with methods ranging from traditional relay protection to modern deep learning for complex fault classification and localization, ensuring system reliability.
 
 ## How to rebuild the model
-The model that is comitted in this repository was trained with the data from IEEE bus system data source, but a similar model can be also built.
+The model that is comitted in this repository was trained with the data from IEEE bus system data source which is comitted here https://github.com/royrishin/arkk_dataset, but a similar model can be also built.
 This procedure can be followed to build the model:
 
 1. Use tensor flow.
